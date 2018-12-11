@@ -21,15 +21,21 @@ io.on('connect', client => {
 		})
 
 		client.to(user.room).emit('usersList', users.getUserByRoom(user.room))
-
+		client.broadcast
+			.to(user.room)
+			.emit(
+				'notification',
+				CreateMessage('Admin', `${user.name} has joined the room chat.`)
+			)
 		return callback(users.getUserByRoom(user.room))
 	})
 
-	client.on('sendMessage', data => {
+	client.on('sendMessage', (data, callback) => {
 		let currentUser = users.getUser(client.id)
 
 		const message = CreateMessage(currentUser.name, data.message)
 		client.broadcast.to(currentUser.room).emit('sendMessage', message)
+		callback(message)
 	})
 
 	client.on('disconnect', () => {

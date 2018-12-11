@@ -1,15 +1,256 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
-		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<title>Chat</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-	</head>
-	<body>
-		<h1>Messages Room</h1>
 
+		<link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+			integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+			crossorigin="anonymous"
+		/>
+
+		<!-- Page CSS -->
+		<link href="css/pages/chat-app-page.css" rel="stylesheet" />
+		<!-- Custom CSS -->
+		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/chat.css" rel="stylesheet" />
+		<link href="css/animate.css" rel="stylesheet" />
+
+		<!-- You can change the theme colors from here -->
+		<link href="css/colors/default-dark.css" id="theme" rel="stylesheet" />
+	</head>
+
+	<body class="fix-header single-column card-no-border fix-sidebar">
+		<!-- ============================================================== -->
+		<!-- Main wrapper -->
+		<!-- ============================================================== -->
+		<div id="main-wrapper">
+			<!-- ============================================================== -->
+			<!-- Page wrapper -->
+			<!-- ============================================================== -->
+			<div class="page-wrapper">
+				<!-- ============================================================== -->
+				<!-- Container fluid -->
+				<!-- ============================================================== -->
+				<div class="container-fluid">
+					<!--
+						==============================================================
+					-->
+					<!-- Start Page Content -->
+					<!--
+						==============================================================
+					-->
+					<div class="row animated fadeIn">
+						<div class="col-12">
+							<div class="card m-b-0">
+								<!-- .chat-row -->
+								<div class="chat-main-box">
+									<!-- .chat-left-panel -->
+									<div class="chat-left-aside">
+										<div class="open-panel"><i class="ti-angle-right"></i></div>
+										<div class="chat-left-inner">
+											<div class="form-material">
+												<input
+													class="form-control p-20"
+													type="text"
+													placeholder="Search contact"
+												/>
+											</div>
+											<ul class="chatonline style-none" id="divUsers">
+												<li>
+													<a href="javascript:void(0)" class="active">
+														Room Chat <span> Games</span></a
+													>
+												</li>
+												<li>
+													<a href="javascript:void(0)"
+														><img
+															src="assets/images/users/1.jpg"
+															alt="user-img"
+															class="img-circle"
+														/>
+														<span
+															>Varun Dhavan
+															<small class="text-success">online</small></span
+														></a
+													>
+												</li>
+												<li>
+													<a href="javascript:void(0)"
+														><img
+															src="assets/images/users/2.jpg"
+															alt="user-img"
+															class="img-circle"
+														/>
+														<span
+															>Genelia Deshmukh
+															<small class="text-warning">Away</small></span
+														></a
+													>
+												</li>
+												<li>
+													<a href="javascript:void(0)"
+														><img
+															src="assets/images/users/3.jpg"
+															alt="user-img"
+															class="img-circle"
+														/>
+														<span
+															>Ritesh Deshmukh
+															<small class="text-danger">Busy</small></span
+														></a
+													>
+												</li>
+												<li>
+													<a href="javascript:void(0)"
+														><img
+															src="assets/images/users/4.jpg"
+															alt="user-img"
+															class="img-circle"
+														/>
+														<span
+															>Arijit Sinh
+															<small class="text-muted">Offline</small></span
+														></a
+													>
+												</li>
+												<li>
+													<a href="javascript:void(0)"
+														><img
+															src="assets/images/users/5.jpg"
+															alt="user-img"
+															class="img-circle"
+														/>
+														<span
+															>Govinda Star
+															<small class="text-success">online</small></span
+														></a
+													>
+												</li>
+												<li>
+													<a href="javascript:void(0)"
+														><img
+															src="assets/images/users/6.jpg"
+															alt="user-img"
+															class="img-circle"
+														/>
+														<span
+															>John Abraham<small class="text-success"
+																>online</small
+															></span
+														></a
+													>
+												</li>
+												<li>
+													<a href="javascript:void(0)"
+														><img
+															src="assets/images/users/7.jpg"
+															alt="user-img"
+															class="img-circle"
+														/>
+														<span
+															>Hritik Roshan<small class="text-success"
+																>online</small
+															></span
+														></a
+													>
+												</li>
+												<li>
+													<a href="javascript:void(0)"
+														><img
+															src="assets/images/users/8.jpg"
+															alt="user-img"
+															class="img-circle"
+														/>
+														<span
+															>Pwandeep rajan
+															<small class="text-success">online</small></span
+														></a
+													>
+												</li>
+												<li class="p-20"></li>
+											</ul>
+										</div>
+									</div>
+									<!-- .chat-left-panel -->
+									<!-- .chat-right-panel -->
+									<div class="chat-right-aside">
+										<div class="chat-main-header">
+											<div class="p-20 b-b">
+												<h3 class="box-title">
+													Chat Room <small>Video Games</small>
+												</h3>
+											</div>
+										</div>
+
+										<div class="chat-rbox">
+											<ul class="chat-list p-20" id="divChatbox">												
+											</ul>
+										</div>
+										<div class="card-body b-t">
+                                            <form id="formSend">
+                                                <div class="row">
+                                                    <div class="col-8">
+                                                        <input
+                                                            id="txtMessage"
+                                                            placeholder="Type your message here..."
+                                                            class="form-control b-0"
+                                                            autofocus
+                                                            autocomplete="off"
+                                                        ></input>
+                                                    </div>
+                                                    <div class="col-4 text-right">
+                                                        <button
+                                                            type="submit"
+                                                            class="btn btn-info btn-circle btn-lg"
+                                                        >
+                                                            <i class="fa fa-paper-plane-o"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+										</div>
+									</div>
+									<!-- .chat-right-panel -->
+								</div>
+								<!-- /.chat-row -->
+							</div>
+						</div>
+					</div>
+					<!--
+						==============================================================
+					-->
+					<!-- End PAge Content -->
+					<!--
+						==============================================================
+					-->
+				</div>
+				<!-- ============================================================== -->
+				<!-- End Container fluid -->
+				<!-- ============================================================== -->
+				<!-- ============================================================== -->
+				<!-- footer -->
+				<!-- ============================================================== -->
+				<footer class="footer">Chat - LA</footer>
+				<!-- ============================================================== -->
+				<!-- End footer -->
+				<!-- ============================================================== -->
+			</div>
+			<!-- ============================================================== -->
+			<!-- End Page wrapper -->
+			<!-- ============================================================== -->
+		</div>
+		<!-- ============================================================== -->
+		<!-- End Wrapper -->
+		<!-- ============================================================== -->
+
+		<script src="js/libs/jquery.min.js"></script>
 		<script src="socket.io/socket.io.js"></script>
+		<script src="js/socket-chat-jquery.js"></script>
 		<script src="js/socket-chat.js"></script>
 	</body>
 </html>

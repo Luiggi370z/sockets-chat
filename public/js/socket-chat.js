@@ -16,7 +16,7 @@ socket.on('connect', function() {
 	console.log('Connected to server')
 
 	socket.emit('joinChat', user, function(res) {
-		console.log('Connected Users', res)
+		renderUsers(res)
 	})
 })
 
@@ -24,27 +24,16 @@ socket.on('disconnect', function() {
 	console.log('Connection with server lost!')
 })
 
-socket.emit(
-	'sendMessage',
-	{
-		user: 'Luis',
-		message: 'Hello world!'
-	},
-	function(res) {
-		console.log('Server res:', res)
-	}
-)
-
 socket.on('sendMessage', function(msg) {
-	console.log('New message:', msg)
+	renderMessage(msg, false)
 })
 
 socket.on('notification', function(msg) {
-	console.log('Server:', msg)
+	renderMessage(msg, false)
 })
 
 socket.on('usersList', function(users) {
-	console.log('Server:', users)
+	renderUsers(users)
 })
 
 socket.on('privateMessage', function(msg) {
